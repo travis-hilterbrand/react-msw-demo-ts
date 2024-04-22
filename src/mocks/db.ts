@@ -1,10 +1,5 @@
 import { factory, primaryKey } from "@mswjs/data";
-
-type User = {
-  id: string;
-  email: string;
-  name: string;
-};
+import { User } from "../types";
 
 export const mockUsers: User[] = [
   {

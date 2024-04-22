@@ -1,19 +1,24 @@
 import { useQuery } from "react-query";
 import axios from "axios";
-
-export type User = {
-  id: string;
-};
-export type Users = ReadonlyArray<User>;
+import { Users } from "../types";
+import { sleep } from "../utils";
 
 const getUsers = async (): Promise<Users> => {
+  await sleep(1000);
   const response = await axios.get(`users`);
   return response.data;
 };
 
 export const useUsers = () => {
-  useQuery({
+  const {
+    isError,
+    isFetching,
+    data = [],
+    refetch,
+  } = useQuery({
     queryKey: ["users"],
     queryFn: () => getUsers(),
   });
+
+  return { isError, isFetching, users: data, refetch };
 };

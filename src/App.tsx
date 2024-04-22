@@ -1,5 +1,5 @@
 import { QueryClient, QueryClientProvider } from "react-query";
-import { Users } from "./Users";
+import { Counter, UsersView } from "./Users";
 
 const queryClient = new QueryClient();
 
@@ -9,7 +9,9 @@ function App() {
       <div>
         <h2>App</h2>
         <hr />
-        <Users />
+        <UsersView />
+        <hr />
+        <Counter />
       </div>
     </QueryClientProvider>
   );

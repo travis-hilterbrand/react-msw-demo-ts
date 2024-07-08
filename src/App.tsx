@@ -1,7 +1,13 @@
 import { QueryClient, QueryClientProvider } from "react-query";
 import { Counter, UsersView } from "./Users";
 
-const queryClient = new QueryClient();
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      refetchOnWindowFocus: false, // default: true
+    },
+  },
+});
 
 function App() {
   return (
